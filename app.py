@@ -40,9 +40,6 @@ def get_manual_input():
         predicted_df = predict_data(user_input)
         st.write("Hasil Prediksi:")
         st.write(predicted_df)
-        excel_bytes = save_excel(predicted_df)
-        st.download_button(label="Unduh Hasil Prediksi dalam Excel", data=excel_bytes, 
-                           file_name="hasil_prediksi.xlsx", mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 
 # Fungsi untuk menyimpan DataFrame ke dalam format Excel dan mengembalikan bytes-nya
 def save_excel(df):
