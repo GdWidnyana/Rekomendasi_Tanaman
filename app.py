@@ -61,7 +61,10 @@ def get_excel_input():
         return None
 
 # Menampilkan judul aplikasi
-st.title("Aplikasi Prediksi Rekomendasi Tanaman")
+st.markdown("<h1 style='text-align: center;'>Aplikasi Prediksi Rekomendasi Tanaman</h1>", unsafe_allow_html=True)
+# Menampilkan teks dengan ukuran kecil
+st.markdown("<p style='font-size: small;'>Final Project Kelompok C3 Pengantar Kecerdasan Buatan</p>", unsafe_allow_html=True)
+
 
 st.write("----------------------------------------------------") 
 # Memilih metode input (manual atau file Excel)
