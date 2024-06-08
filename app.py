@@ -63,6 +63,7 @@ def get_excel_input():
 # Menampilkan judul aplikasi
 st.title("Aplikasi Prediksi Rekomendasi Tanaman")
 
+st.write("----------------------------------------------------"
 # Memilih metode input (manual atau file Excel)
 input_method = st.radio("Pilih Metode Input:", ("Manual", "File Excel"))
 
