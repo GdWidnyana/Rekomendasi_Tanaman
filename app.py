@@ -65,10 +65,16 @@ def get_excel_input():
 # Fungsi untuk membuat diagram batang hasil prediksi
 def plot_predictions(df):
     plt.figure(figsize=(10, 6))
-    sns.countplot(x='Label', data=df)
+    ax = sns.countplot(x='Label', data=df)
     plt.title('Distribusi Prediksi Rekomendasi Tanaman')
     plt.xlabel('Label')
     plt.ylabel('Jumlah')
+
+    # Menambahkan angka di atas batang
+    for p in ax.patches:
+        ax.annotate(f'{p.get_height()}', (p.get_x() + p.get_width() / 2., p.get_height()), 
+                    ha='center', va='center', xytext=(0, 10), textcoords='offset points')
+    
     st.pyplot(plt)
 
 # Menampilkan judul aplikasi
