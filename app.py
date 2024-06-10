@@ -3,6 +3,8 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 from io import BytesIO
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Memuat model terbaik dari file pickle
 with open('model_terbaik.pkl', 'rb') as file:
@@ -60,6 +62,15 @@ def get_excel_input():
     else:
         return None
 
+# Fungsi untuk membuat diagram batang hasil prediksi
+def plot_predictions(df):
+    plt.figure(figsize=(10, 6))
+    sns.countplot(x='Label', data=df)
+    plt.title('Distribusi Prediksi Rekomendasi Tanaman')
+    plt.xlabel('Label')
+    plt.ylabel('Jumlah')
+    st.pyplot(plt)
+
 # Menampilkan judul aplikasi
 st.markdown("<h1 style='text-align: center;'>Aplikasi Prediksi Rekomendasi Tanaman</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: center;'>Final Project Kelompok C3 Pengantar Kecerdasan Buatan</h3>", unsafe_allow_html=True)
@@ -81,6 +92,9 @@ else:
         # Menampilkan hasil prediksi dalam DataFrame di Streamlit
         st.write("Hasil Prediksi:")
         st.write(predicted_df)
+
+        # Membuat dan menampilkan diagram batang hasil prediksi
+        plot_predictions(predicted_df)
 
         # Tombol untuk mengunduh hasil prediksi dalam file Excel
         excel_bytes = save_excel(predicted_df)
