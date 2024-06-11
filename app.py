@@ -10,17 +10,17 @@ import seaborn as sns
 with open('model_terbaik.pkl', 'rb') as file:
     model_terbaik = pickle.load(file)
 
-# Memuat selector dari file pickle
-with open('selector.pkl', 'rb') as file:
-    selector = pickle.load(file)
+# # Memuat selector dari file pickle
+# with open('selector.pkl', 'rb') as file:
+#     selector = pickle.load(file)
 
 # Fungsi untuk memprediksi data dari DataFrame
 def predict_data(df):
-    # Seleksi fitur sesuai dengan model yang disimpan
-    selected_features = selector.transform(df)
+    # # Seleksi fitur sesuai dengan model yang disimpan
+    # selected_features = selector.transform(df)
 
     # Melakukan prediksi menggunakan model terbaik
-    predictions = model_terbaik.predict(selected_features)
+    predictions = model_terbaik.predict(df)
     
     # Menambahkan kolom label prediksi ke DataFrame
     df['Label'] = predictions
