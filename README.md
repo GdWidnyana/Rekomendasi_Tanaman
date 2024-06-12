@@ -1,4 +1,5 @@
 Sistem Rekomendasi Budidaya Jenis Tanaman Berdasarkan Kondisi Tanah dengan Menggunakan Algoritma Naive Bayes
+
 Mata Kuliah : Pengantar Kecerdasan Buatan
 
 Disusun oleh :
